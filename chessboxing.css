@@ -1,0 +1,253 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=Kanit:wght@400;700&display=swap');
+
+/* CSS Variables for scale reference */
+:root {
+    --base-font-size: 14pt;
+    --line-height: 1.6;
+    --max-content-width: 60rem;
+    --horizontal-padding: 2rem;
+}
+
+/* Font Stacks */
+body, p, ul, ol, table, figcaption {
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: var(--base-font-size);
+    line-height: var(--line-height);
+}
+
+h1, h2, h3, nav a {
+    font-family: 'Kanit', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Layout */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: 1rem var(--horizontal-padding);
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 1rem 1rem;
+    }
+}
+
+/* Header */
+header {
+    background-image: url('https://github.com/cgshep/csc8018-coursework-resources/blob/master/assets/chessboxing_background.jpg?raw=true');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    text-align: left;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
+
+header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    /* 保持 h1 的左对齐与 main content padding 对齐 */
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    margin-left: var(--horizontal-padding); 
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2.5rem;
+        margin-left: 1rem; /* 匹配小屏幕的 main content padding */
+    }
+}
+
+/* Navigation */
+nav {
+    /* 修正: 将 nav 容器居中并限制最大宽度，使其与 main 对齐 */
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: 1rem var(--horizontal-padding);
+    /* text-align: right; 被移除，由 flexbox 控制对齐 */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end; /* 保持 ul 内部内容右对齐 */
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 400;
+    font-size: 1.2rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    background-color: #fffffff6;
+    color: yellow;
+}
+
+@media (max-width: 600px) {
+    nav {
+        padding: 1rem 1rem; /* 匹配小屏幕的 main content padding */
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 1rem;
+    }
+}
+
+/* Main Content Styling */
+section {
+    margin-bottom: 3rem;
+}
+
+h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #d35400; /* Found color code */
+}
+
+h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 2rem 0 1rem 0;
+    color: #e67e22; /* Found color code */
+}
+
+p, ul, ol, table {
+    margin-bottom: 1rem;
+}
+
+/* Figure and Image Styling */
+figure {
+    margin: 2rem 0;
+}
+
+figure img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+figcaption {
+    font-style: italic;
+    color: #555;
+    margin-top: 0.5rem;
+    font-size: 0.9em;
+}
+
+/* Video Embed */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    margin: 1.5rem 0;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+table th {
+    background-color: #ecf0f1;
+    font-weight: bold;
+}
+
+/* Blockquote Styling */
+blockquote {
+    border-left: 4px solid #d35400;
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    background-color: #fdf6e3;
+    font-style: italic;
+    color: #333;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1.5rem var(--horizontal-padding);
+    background-color: #34495e;
+    color: #ecf0f1;
+    font-size: 0.9em;
+}
+
+/* Floating Elements (Responsive) */
+/* On large screens, float the image in the History section to the right */
+@media (min-width: 601px) {
+    /* Target the second figure in the first section (the map image) */
+    section:first-of-type figure:nth-of-type(2) {
+        float: right;
+        width: 45%;
+        margin: 0 0 1rem 1.5rem;
+    }
+
+    /* Ensure text wraps correctly around floated elements */
+    section:first-of-type figure:nth-of-type(2) img {
+        display: block;
+    }
+
+    section:first-of-type figure:nth-of-type(2) figcaption {
+        text-align: right;
+    }
+}
+
+/* On small screens, cancel float and center the image */
+@media (max-width: 600px) {
+    section:first-of-type figure:nth-of-type(2) {
+        float: none;
+        width: 100%;
+        margin: 2rem auto;
+        text-align: center;
+    }
+
+    section:first-of-type figure:nth-of-type(2) figcaption {
+        text-align: center;
+    }
+}
